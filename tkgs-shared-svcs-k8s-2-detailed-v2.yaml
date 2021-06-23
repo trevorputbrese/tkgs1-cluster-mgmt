@@ -1,7 +1,7 @@
 apiVersion: run.tanzu.vmware.com/v1alpha1    
 kind: TanzuKubernetesCluster                 
 metadata:
-  name: tkgs-shared-svcs-k8s-2     
+  name: tkgs-shared-svcs-k8s-1     
   namespace: tkgs-shared-svcs-ns-1
 spec:
   distribution:
@@ -34,5 +34,5 @@ spec:
       pods:
         cidrBlocks: ["192.1.0.0/16"]           #Cannot overlap with Supervisor Cluster
     storage:
-      classes: ["tanzu-disk-storage-policy","tanzu-flash-storage-policy"]              #Named PVC storage classes
+      classes: ["tanzu-disk-storage-policy","tanzu-flash-storage-policy","standard"]              #Named PVC storage classes
       defaultClass: standard   #Default PVC storage class
