@@ -17,7 +17,7 @@ spec:
           capacity:
             storage: 30Gi 
     workers:
-      count: 1                                 #number of worker nodes
+      count: 2                                 #number of worker nodes
       class: guaranteed-large                 #vmclass for worker nodes
       storageClass: standard         #storageclass for worker nodes
       volumes:
