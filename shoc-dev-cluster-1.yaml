@@ -1,0 +1,18 @@
+  
+apiVersion: run.tanzu.vmware.com/v1alpha1       #TKG API endpoint
+kind: TanzuKubernetesCluster                    #required parameter
+metadata:
+  name: shoc-dev-cluster-1                      #cluster name, user defined
+  namespace: shoc-dev-team-ns                   #supervisor namespace
+spec:
+  distribution:
+    version: v1.18  
+  topology:
+    controlPlane:
+      count: 1                                  #number of control plane nodes
+      class: guaranteed-small                   #vmclass for control plane nodes
+      storageClass: standard                    #storageclass for control plane
+    workers:
+      count: 1                                  #number of worker nodes
+      class: guaranteed-small                   #vmclass for worker nodes
+      storageClass: standard                    #storageclass for worker nodes
