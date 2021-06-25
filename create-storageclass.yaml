@@ -1,0 +1,12 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: standard
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"  # Optional
+provisioner: csi.vsphere.vmware.com
+allowVolumeExpansion: true  # Optional: only applicable to vSphere 7.0U1 and above
+parameters:
+  datastoreurl: "ds:///vmfs/volumes/390d7fc0-a3ef0b92-0000-000000000000/"
+  storagepolicyname: "standard" 
+  csi.storage.k8s.io/fstype: "ext4"  # Optional Parameter
