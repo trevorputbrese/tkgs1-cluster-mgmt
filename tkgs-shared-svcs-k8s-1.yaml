@@ -15,7 +15,7 @@ spec:
         - name: etcd
           mountPath: /var/lib/etcd
           capacity:
-            storage: 50Gi 
+            storage: 70Gi 
     workers:
       count: 2                                 #number of worker nodes
       class: guaranteed-small                  #vmclass for worker nodes
