@@ -1,11 +1,11 @@
 apiVersion: run.tanzu.vmware.com/v1alpha1    
 kind: TanzuKubernetesCluster                 
 metadata:
-  name: tkgs1-acme-dev-k8s-1     
-  namespace: tkgs1-acme-dev-team-ns
+  name: tkgs1-spring-dev-team-k8s-1   
+  namespace: spring-dev-team-ns
 spec:
   distribution:
-    version: v1.21  #Resolves to the latest v1.20 image
+    version: v1.21  #Resolves to the latest v1.21 image
   topology:
     controlPlane:
       count: 1                                 #number of control plane nodes
