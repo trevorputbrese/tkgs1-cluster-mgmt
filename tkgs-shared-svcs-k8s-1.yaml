@@ -2,7 +2,7 @@ apiVersion: run.tanzu.vmware.com/v1alpha1
 kind: TanzuKubernetesCluster                 
 metadata:
   name: tkgs1-shared-svcs-k8s-1     
-  namespace: tkgs1-shared-svcs-ns
+  namespace: shared-svcs-ns
 spec:
   distribution:
     version: v1.21  #Resolves to the latest v1.21 image
