@@ -1,0 +1,31 @@
+apiVersion: run.tanzu.vmware.com/v1alpha1    
+kind: TanzuKubernetesCluster                 
+metadata:
+  name: tkgs1-shared-svcs-k8s-1   
+  namespace: shared-svcs-ns
+spec:
+  distribution:
+    version: v1.21  #Resolves to the latest v1.21 image
+  topology:
+    controlPlane:
+      count: 1                                 #number of control plane nodes
+      class: guaranteed-medium                 #vmclass for control plane nodes
+      storageClass: tanzu-disk-storage-policy         #storageclass for control plane
+      volumes:
+        - name: etcd
+          mountPath: /var/lib/etcd
+          capacity:
+            storage: 50Gi 
+    workers:
+      count: 2                            #number of worker nodes
+      class: guaranteed-large                 #vmclass for worker nodes
+      storageClass: tanzu-disk-storage-policy         #storageclass for worker nodes
+      volumes:
+        - name: containerd
+          mountPath: /var/lib/containerd
+          capacity:
+            storage: 100Gi       
+  settings:
+    storage:
+      classes: ["tanzu-disk-storage-policy"]              #Named PVC storage classes
+      defaultClass: tanzu-disk-storage-policy   #Default PVC storage class
