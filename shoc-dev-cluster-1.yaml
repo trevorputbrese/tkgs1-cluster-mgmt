@@ -2,8 +2,8 @@
 apiVersion: run.tanzu.vmware.com/v1alpha1       #TKG API endpoint
 kind: TanzuKubernetesCluster                    #required parameter
 metadata:
-  name: shoc-dev-cluster-1                      #cluster name, user defined
-  namespace: shoc-dev-team-ns-1                 #supervisor namespace
+  name: tkgs1-spring-dev-team-k8s-2   
+  namespace: spring-dev-team-ns
 spec:
   distribution:
     version: v1.19 
@@ -11,8 +11,8 @@ spec:
     controlPlane:
       count: 1                                  #number of control plane nodes
       class: guaranteed-small                   #vmclass for control plane nodes
-      storageClass: standard                    #storageclass for control plane
+      storageClass: tanzu-disk-storage-policy                    #storageclass for control plane
     workers:
-      count: 10                                  #number of worker nodes
+      count: 1                                  #number of worker nodes
       class: guaranteed-small                   #vmclass for worker nodes
-      storageClass: standard                    #storageclass for worker nodes
+      storageClass: tanzu-disk-storage-policy                    #storageclass for worker nodes
