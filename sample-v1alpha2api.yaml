@@ -9,6 +9,11 @@ spec:
       replicas: 1
       vmClass: guaranteed-small
       storageClass: tanzu-disk-storage-policy
+      volumes:
+        - name: etcd
+          mountPath: /var/lib/etcd
+          capacity:
+            storage: 4Gi
       tkr:  
         reference:
           name: v1.21.2---vmware.1-tkg.1.ee25d55
@@ -17,10 +22,17 @@ spec:
       replicas: 1
       vmClass: guaranteed-small
       storageClass: tanzu-disk-storage-policy
+      volumes:
+        - name: containerd
+          mountPath: /var/lib/containerd
+          capacity:
+            storage: 16Gi
       tkr:  
         reference:
           name: v1.21.2---vmware.1-tkg.1.ee25d55
   settings:
+    storage:
+      defaultClass: tanzu-disk-storage-policy
     network:
       cni:
         name: antrea
