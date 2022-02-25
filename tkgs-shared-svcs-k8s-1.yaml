@@ -1,8 +1,8 @@
 apiVersion: run.tanzu.vmware.com/v1alpha1    
 kind: TanzuKubernetesCluster                 
 metadata:
-  name: tkgs1-shared-svcs-k8s-1     
-  namespace: shared-svcs-ns
+  name: tkgs1-spring-dev-team-k8s-3
+  namespace: spring-dev-team-ns
 spec:
   distribution:
     version: v1.21  #Resolves to the latest v1.21 image
@@ -15,16 +15,16 @@ spec:
         - name: etcd
           mountPath: /var/lib/etcd
           capacity:
-            storage: 70Gi 
+            storage: 15Gi 
     workers:
-      count: 2                                 #number of worker nodes
-      class: guaranteed-small                  #vmclass for worker nodes
+      count: 1                                 #number of worker nodes
+      class: guaranteed-medium                  #vmclass for worker nodes
       storageClass: tanzu-disk-storage-policy  #storageclass for worker nodes
       volumes:
         - name: containerd
           mountPath: /var/lib/containerd
           capacity:
-            storage: 300Gi       
+            storage: 15Gi       
   settings:
     network:
       cni:
