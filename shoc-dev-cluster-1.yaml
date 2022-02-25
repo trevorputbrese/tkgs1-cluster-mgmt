@@ -1,5 +1,5 @@
   
-apiVersion: run.tanzu.vmware.com/v1alpha1       #TKG API endpoint
+apiVersion: run.tanzu.vmware.com/v1alpha2       #TKG API endpoint
 kind: TanzuKubernetesCluster                    #required parameter
 metadata:
   name: tkgs1-spring-dev-team-k8s-2   
